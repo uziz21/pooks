@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            overflow: hidden;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #funny-text, #proposal, #response {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #buttons {
+            position: relative;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        #yes {
+            background-color: lightgreen;
+        }
+        #no {
+            background-color: lightcoral;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="funny-text">Roses are red, violets are blue... Wait, what is this?! 🤔</div>
+        <div id="proposal" style="display: none;">Will you be my Valentine? 😍</div>
+        <div id="buttons" style="display: none;">
+            <button id="yes" onclick="sayYes()">Yes</button>
+            <button id="no" onmouseover="moveNoButton()">No</button>
+        </div>
+        <div id="response" style="display: none;">YAYYYYYYYY 😘😘😘😘</div>
+        <img id="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Red_heart.svg/768px-Red_heart.svg.png" style="display: none; width: 100px;">
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('funny-text').style.display = 'none';
+            document.getElementById('proposal').style.display = 'block';
+            document.getElementById('buttons').style.display = 'block';
+        }, 3000);
+        
+        function moveNoButton() {
+            let button = document.getElementById('no');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+        
+        function sayYes() {
+            document.getElementById('proposal').style.display = 'none';
+            document.getElementById('buttons').style.display = 'none';
+            document.getElementById('response').style.display = 'block';
+            document.getElementById('heart').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
